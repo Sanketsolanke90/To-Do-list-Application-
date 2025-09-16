@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package grpcserver;
+
+service MyService {
+    rpc Add (AddRequest) returns (AddResponse);
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+    rpc Get (GetRequest) returns (GetResponse);
+}
+
+message AddRequest {
+    string data = 1;
+}
+
+message AddResponse {
+    bool success = 1;
+}
+
+message UpdateRequest {
+    string id = 1;
+    string newData = 2;
+}
+
+message UpdateResponse {
+    bool success = 1;
+}
+
+message GetRequest {
+    string id = 1;
+}
+
+message GetResponse {
+    string data = 1;
+}
